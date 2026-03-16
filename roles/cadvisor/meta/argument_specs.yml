@@ -73,6 +73,10 @@ argument_specs:
         description: "do not report raw cgroup metrics, except the root cgroup"
         type: "bool"
         default: false
+      cadvisor_basic_auth_users:
+        description: "Dictionary of username / password for HTTP basic authentication"
+        type: "dict"
+        default: {}
       cadvisor_system_group:
         description:
           - "I(Advanced)"
@@ -91,3 +95,6 @@ argument_specs:
       cadvisor_local_cache_path:
         description: 'Local path to stash the archive and its extraction'
         default: "/tmp/cadvisor-{{ ansible_facts['system'] | lower }}-{{ _cadvisor_go_ansible_arch }}/{{ cadvisor_version }}"
+      cadvisor_config_dir:
+        description: "Directory for cAdvisor configuration files"
+        default: "/etc/cadvisor"
